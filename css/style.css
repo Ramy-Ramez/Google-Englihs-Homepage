@@ -35,10 +35,14 @@ The middle div is centered vertically using CSS display table property.
 .search form input:nth-of-type(2), .search form input:nth-of-type(3) {color: #5F6368; padding: 5px 16px; line-height: 27px; background-color: #f1f1f1; border: 1px solid #f2f2f2; border-radius: 4px; margin: 0 10px 15px 0}
 .search form input:nth-of-type(2):hover, .search form input:nth-of-type(3):hover {border: 1px solid #c6c6c6; color: #222; cursor: pointer}
 .search .search-content span {position: absolute; top: 49%; left: 93%; width: 24px; height: 24px}/*The parent .search-content div is position: relative*/
+.search .search-content span:hover ~ div {display: block}/* Show the .triangle-speech-bubble */
 .search .search-content span img {width: 100%; cursor: pointer}
+.search .search-content .triangle-speech-bubble {width: 105px; height: 30px; border: 2px solid #e4e4e4; line-height: 26px; background-color: rgba(0, 0, 0, .8) ; color: #FFF; font-size: 11px; font-weight: bold; font-family: arial,sans-serif; display: none; position: absolute; top: 56%; left: 86%}
+.search .search-content .triangle-speech-bubble::before {content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 0 5px 5px 5px; border-color: rgba(0, 0, 0, .8) transparent; position: absolute; top: -5px; left: 45px}
 .search .search-content p {line-height: 28px; color: #222; font-size: 14px}
 .search .search-content p a {text-decoration: none; color: #1a0dab}
-.search .search-content p a:visited {color: black}
+.search .search-content p a:hover {text-decoration: underline}
+.search .search-content p a:visited {color: #1a0dab}
 /*End: Search Section*/
 
 /*Start: Footer*/
@@ -48,7 +52,7 @@ footer .container .second-half ul li:hover {text-decoration: underline}
 footer .container .second-half ul.float-left li {margin-right: 27px; font-size: 13px}
 footer .container .second-half ul.float-right li {margin-right: 27px; font-size: 13px}
 footer .container .second-half ul.float-right li:last-of-type {margin-right: 0}
-footer .container .second-half ul li a {text-decoration: none}
+footer .container .second-half ul li a {text-decoration: none; color: #5F6368}
 footer .container .second-half ul li a:visited {color: #5F6368}
 /*End: Footer*/
 
@@ -69,13 +73,11 @@ footer .container .second-half ul li a:visited {color: #5F6368}
 * {margin: 0; padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    box-sizing: border-box}
 /*
 Or
 body {margin: 0; padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+    box-sizing: border-box}
 /*My Framework*/
