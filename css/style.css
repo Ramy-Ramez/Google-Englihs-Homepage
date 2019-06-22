@@ -7,14 +7,19 @@ Check Footer Always Bottom folder - You must give the div before the footer a ce
 /*Start: Top Bar*/
 .top-bar {height: 83px; padding: 23px 13px; /*background-color: #333*/}
 .top-bar ul {/*background-color: red*/}   /* ul {overflow: hidden}*/ /*Or overflow: auto    OR     .clear-fix*/
+@media (min-width: 1300px) {/*Extra Large: Laptops and Desktops*/
+    .container {max-width: 1300px !important}
+}
+
 .top-bar ul li:not(:last-of-type) {margin-right: 18px; font-family: arial,sans-serif; font-size: 13px; opacity: .87}
 .top-bar ul li:hover {text-decoration: underline; opacity: .85}
 .top-bar ul li:nth-of-type(3) img {width: 16px; opacity: .55}
 .top-bar ul li:nth-of-type(3) img:hover {opacity: 1}
 /*.top-bar ul li:first-child {background-color: aqua}*/
+.top-bar ul li:last-child {margin-top: -7px}
 .top-bar ul li a {color: #555; text-decoration: none}
 .top-bar ul li a:visited {color: black}
-.top-bar ul li > button {color: #FFF;  border: none; font-weight: bold; background-color: #4285f4; border-radius: 2px; padding: 8px 12px; margin-top: -7px}
+.top-bar ul li > button {color: #FFF;  border: none; font-weight: bold; background-color: #4285f4; border-radius: 2px; padding: 8px 12px}
 .top-bar ul li > button:hover {
     -moz-transition: all .1s ease-in-out;
     -ms-transition: all .1s ease-in-out;
@@ -32,6 +37,9 @@ Check Footer Always Bottom folder - You must give the div before the footer a ce
 .search .search-content {display: table-cell; vertical-align: middle}
 .search .search-content .test {position: relative}
 .search form input:first-of-type {display: block; margin: 20px auto; width: 582px; height: 44px; padding: 12px 20px; border-radius: 24px; border: 1px solid #dfe1e5; outline: none}
+@media (max-width: 600px) {/*Extra Small: Portrait phones*/
+    .search form input:first-of-type {width: 480px}
+}
 .search form input:first-of-type:hover {box-shadow: 1px 1px 1px #DDD, -1px -1px 1px #DDD}
 .search form input:first-of-type:focus::-webkit-input-placeholder {opacity: 0}
 .search form input:nth-of-type(2), .search form input:nth-of-type(3) {color: #5F6368; padding: 5px 16px; line-height: 27px; background-color: #f1f1f1; border: 1px solid #f2f2f2; border-radius: 4px; margin: 0 10px 15px 0}
@@ -50,7 +58,16 @@ Check Footer Always Bottom folder - You must give the div before the footer a ce
 /*Start: Footer*/
 footer {background-color: #f2f2f2; border: 1px solid #e4e4e4; line-height: 40px; color: #5F6368; font-family: arial,sans-serif; font-size: 15px; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 83px}
 footer .first-half {border-bottom: 1px solid #e4e4e4; margin: 0}
+
 footer .second-half {margin: 0}
+
+
+@media (max-width: 600px) {/*Extra Small: Portrait phones*/
+    footer .second-half .container {text-align: center}
+    footer .second-half .container ul {float: none; width: 100%}
+    footer .second-half .container ul li {float: none; display: inline-block}
+}
+footer .second-half .container ul {overflow: hidden}
 footer .second-half .container ul li:hover {text-decoration: underline}
 footer .second-half .container ul.float-left li {margin-right: 27px; font-size: 13px}
 footer .second-half .container ul.float-right li {margin-right: 27px; font-size: 13px}
@@ -61,8 +78,8 @@ footer .second-half .container ul li a:visited {color: #5F6368}
 
 
 
-/*My Framework*/
-.container {width: 1306px; margin: 0 auto}
+/*Start: My Framework*/
+.container {margin: 0 auto}
 .float-left {float: left}
 .float-right {float: right}
 .text-center {text-align: center}
@@ -87,4 +104,45 @@ body {margin: 0; padding: 0;
 /*html {height: 100%; min-height: 100%;*/ /*border: 2px solid #F00*//*}*/
 /*body {height: 100%; min-height: 100%; position: relative */ /*border: 2px solid #00F*//*}*/
 body {min-height: 100vh; position: relative}
-/*My Framework*/
+
+
+    /*Media Queries for a Responsive Design*/
+    /*For Google site specifically*/
+@media (max-width: 599px) {/*Extra Small: Portrait phones*/
+    .container {max-width: 500px; margin: 0 auto}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {/*Small: Landscape phones*/
+    .container {max-width: 570px}
+}
+@media (min-width: 768px) and (max-width: 991.98px) {/*Medium: Tablets*/
+    .container {max-width: 750px}
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {/*Large: Laptops*/
+    .container {max-width: 990px}
+}
+@media (min-width: 1200px) {/*Extra Large: Laptops and Desktops*/
+    .container {max-width: 1200px}
+}
+@media (min-width: 1300px) {
+    .container {max-width: 1300px !important}
+}
+
+
+    /*General*/
+/*@media (max-width: 575.98px) {*/  /*Extra Small: Portrait phones*/
+    /*.container {width: auto}
+}*/
+/*@media (min-width: 576px) and (max-width: 767.98px) {*/  /*Small: Landscape phones*/
+    /*.container {width: 570px}
+}*/
+/*@media (min-width: 768px) and (max-width: 991.98px) {*/  /*Medium: Tablets*/
+    /*.container {width: 750px}
+}*/
+/*@media (min-width: 992px) and (max-width: 1199.98px) {*/   /*Large: Laptops*/
+    /*.container {width: 990px}
+}*/
+/*@media (min-width: 1200px) {*/  /*Extra Large: Laptops and Desktops*/
+    /*.container {width: 1170px}
+}*/
+/*End: My Framework*/
+
