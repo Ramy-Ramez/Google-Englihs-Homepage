@@ -1,10 +1,11 @@
 /*Notes:
 The design consists of three main divs, the upper and lower one have 12vh and the middle one has 76vh.(Total = 100vh).
 The middle div is centered vertically using CSS display table property.
+Check Footer Always Bottom folder - You must give the div before the footer a certain (with px) height to prevent the footer from being fixed (encroaching the previous div)>
 */
 
 /*Start: Top Bar*/
-.top-bar {height: 12vh; padding: 23px 13px; /*background-color: #333*/}
+.top-bar {height: 83px; padding: 23px 13px; /*background-color: #333*/}
 .top-bar ul {/*background-color: red*/}   /* ul {overflow: hidden}*/ /*Or overflow: auto    OR     .clear-fix*/
 .top-bar ul li:not(:last-of-type) {margin-right: 18px; font-family: arial,sans-serif; font-size: 13px; opacity: .87}
 .top-bar ul li:hover {text-decoration: underline; opacity: .85}
@@ -25,19 +26,20 @@ The middle div is centered vertically using CSS display table property.
 /*End: Top Bar*/
 
 /*Start: Search Section*/
-.search {height: 76vh; /*background-color: #555*/}
+.search {/*background-color: #555*/ height: 437px}/*The padding bottom must be the same as the footer height so that the footer could not encroach the .search div whin you minimize the browser window*/
 .search .table {display: table; height: 100%; margin: 0 auto}
 .search .table .table-row {display: table-row}
-.search .search-content {position: relative; display: table-cell; vertical-align: middle}/*to use position: absolute for the voice search image*/
+.search .search-content {display: table-cell; vertical-align: middle}
+.search .search-content .test {position: relative}
 .search form input:first-of-type {display: block; margin: 20px auto; width: 582px; height: 44px; padding: 12px 20px; border-radius: 24px; border: 1px solid #dfe1e5; outline: none}
 .search form input:first-of-type:hover {box-shadow: 1px 1px 1px #DDD, -1px -1px 1px #DDD}
 .search form input:first-of-type:focus::-webkit-input-placeholder {opacity: 0}
 .search form input:nth-of-type(2), .search form input:nth-of-type(3) {color: #5F6368; padding: 5px 16px; line-height: 27px; background-color: #f1f1f1; border: 1px solid #f2f2f2; border-radius: 4px; margin: 0 10px 15px 0}
 .search form input:nth-of-type(2):hover, .search form input:nth-of-type(3):hover {border: 1px solid #c6c6c6; color: #222; cursor: pointer}
-.search .search-content span {position: absolute; top: 49%; left: 93%; width: 24px; height: 24px}/*The parent .search-content div is position: relative*/
+.search .search-content span {position: absolute; top: 10%; left: 93%; width: 24px; height: 24px}/*The parent .search-content div is position: relative*/
 .search .search-content span:hover ~ div {display: block}/* Show the .triangle-speech-bubble */
 .search .search-content span img {width: 100%; cursor: pointer}
-.search .search-content .triangle-speech-bubble {width: 105px; height: 30px; border: 2px solid #e4e4e4; line-height: 26px; background-color: rgba(0, 0, 0, .8) ; color: #FFF; font-size: 11px; font-weight: bold; font-family: arial,sans-serif; display: none; position: absolute; top: 56%; left: 86%}
+.search .search-content .triangle-speech-bubble {width: 105px; height: 30px; border: 2px solid #e4e4e4; line-height: 26px; background-color: rgba(0, 0, 0, .8) ; color: #FFF; font-size: 11px; font-weight: bold; font-family: arial,sans-serif; display: none; position: absolute; top: 40%; left: 86%}
 .search .search-content .triangle-speech-bubble::before {content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 0 5px 5px 5px; border-color: rgba(0, 0, 0, .8) transparent; position: absolute; top: -5px; left: 45px}
 .search .search-content p {line-height: 28px; color: #222; font-size: 14px}
 .search .search-content p a {text-decoration: none; color: #1a0dab}
@@ -46,14 +48,15 @@ The middle div is centered vertically using CSS display table property.
 /*End: Search Section*/
 
 /*Start: Footer*/
-footer {height: 12vh; background-color: #f2f2f2; border: 1px solid #e4e4e4; line-height: 40px; color: #5F6368; font-family: arial,sans-serif; font-size: 15px}
-footer hr {border: none; height: 1px; background-color: #e4e4e4}
-footer .container .second-half ul li:hover {text-decoration: underline}
-footer .container .second-half ul.float-left li {margin-right: 27px; font-size: 13px}
-footer .container .second-half ul.float-right li {margin-right: 27px; font-size: 13px}
-footer .container .second-half ul.float-right li:last-of-type {margin-right: 0}
-footer .container .second-half ul li a {text-decoration: none; color: #5F6368}
-footer .container .second-half ul li a:visited {color: #5F6368}
+footer {background-color: #f2f2f2; border: 1px solid #e4e4e4; line-height: 40px; color: #5F6368; font-family: arial,sans-serif; font-size: 15px; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 83px}
+footer .first-half {border-bottom: 1px solid #e4e4e4; margin: 0}
+footer .second-half {margin: 0}
+footer .second-half .container ul li:hover {text-decoration: underline}
+footer .second-half .container ul.float-left li {margin-right: 27px; font-size: 13px}
+footer .second-half .container ul.float-right li {margin-right: 27px; font-size: 13px}
+footer .second-half .container ul.float-right li:last-of-type {margin-right: 0}
+footer .second-half .container ul li a {text-decoration: none; color: #5F6368}
+footer .second-half .container ul li a:visited {color: #5F6368}
 /*End: Footer*/
 
 
@@ -80,4 +83,8 @@ body {margin: 0; padding: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box}
+ */
+/*html {height: 100%; min-height: 100%;*/ /*border: 2px solid #F00*//*}*/
+/*body {height: 100%; min-height: 100%; position: relative */ /*border: 2px solid #00F*//*}*/
+body {min-height: 100vh; position: relative}
 /*My Framework*/
