@@ -1,16 +1,14 @@
 /*Notes:
-The design consists of three main divs, the upper and lower one have 12vh and the middle one has 76vh.(Total = 100vh).
+The design consists of three main divs, the footer is kept alway at bottom by giving body {position: relative} and footer {position: absolute; bottom: 0}
 The middle div is centered vertically using CSS display table property.
 Check Footer Always Bottom folder - You must give the div before the footer a certain (with px) height to prevent the footer from being fixed (encroaching the previous div)>
+To avoid footer encroaching the previous div, I gave the previous .search div a great padding.
+Created Favicon.
 */
 
 /*Start: Top Bar*/
 .top-bar {height: 83px; padding: 23px 13px; /*background-color: #333*/}
 .top-bar ul {/*background-color: red*/}   /* ul {overflow: hidden}*/ /*Or overflow: auto    OR     .clear-fix*/
-@media (min-width: 1300px) {/*Extra Large: Laptops and Desktops*/
-    .container {max-width: 1300px !important}
-}
-
 .top-bar ul li:not(:last-of-type) {margin-right: 18px; font-family: arial,sans-serif; font-size: 13px; opacity: .87}
 .top-bar ul li:hover {text-decoration: underline; opacity: .85}
 .top-bar ul li:nth-of-type(3) img {width: 16px; opacity: .55}
@@ -49,7 +47,7 @@ Check Footer Always Bottom folder - You must give the div before the footer a ce
 .search .search-content span img {width: 100%; cursor: pointer}
 .search .search-content .triangle-speech-bubble {width: 105px; height: 30px; border: 2px solid #e4e4e4; line-height: 26px; background-color: rgba(0, 0, 0, .8) ; color: #FFF; font-size: 11px; font-weight: bold; font-family: arial,sans-serif; display: none; position: absolute; top: 40%; left: 86%}
 .search .search-content .triangle-speech-bubble::before {content: ''; display: block; width: 0; height: 0; border-style: solid; border-width: 0 5px 5px 5px; border-color: rgba(0, 0, 0, .8) transparent; position: absolute; top: -5px; left: 45px}
-.search .search-content p {line-height: 28px; color: #222; font-size: 14px}
+.search .search-content p {line-height: 28px; color: #222; font-size: 13px}
 .search .search-content p a {text-decoration: none; color: #1a0dab}
 .search .search-content p a:hover {text-decoration: underline}
 .search .search-content p a:visited {color: #1a0dab}
@@ -58,13 +56,10 @@ Check Footer Always Bottom folder - You must give the div before the footer a ce
 /*Start: Footer*/
 footer {background-color: #f2f2f2; border: 1px solid #e4e4e4; line-height: 40px; color: #5F6368; font-family: arial,sans-serif; font-size: 15px; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 83px}
 footer .first-half {border-bottom: 1px solid #e4e4e4; margin: 0}
-
 footer .second-half {margin: 0}
-
-
 @media (max-width: 600px) {/*Extra Small: Portrait phones*/
-    footer .second-half .container {text-align: center}
-    footer .second-half .container ul {float: none; width: 100%}
+    footer .container {text-align: center}
+    footer .second-half .container ul {float: none; width: 100%; background-color: #f2f2f2}
     footer .second-half .container ul li {float: none; display: inline-block}
 }
 footer .second-half .container ul {overflow: hidden}
@@ -103,7 +98,7 @@ body {margin: 0; padding: 0;
  */
 /*html {height: 100%; min-height: 100%;*/ /*border: 2px solid #F00*//*}*/
 /*body {height: 100%; min-height: 100%; position: relative */ /*border: 2px solid #00F*//*}*/
-body {min-height: 100vh; position: relative}
+body {min-height: 100vh; position: relative; font-family: arial,sans-serif}
 
 
     /*Media Queries for a Responsive Design*/
